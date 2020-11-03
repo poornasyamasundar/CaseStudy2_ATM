@@ -110,7 +110,14 @@ public class Solution{
 		System.out.println("welcome to HDFD Bank!");
 		customer.add( new BankCustomer("Ram",56894,2356,10000) );
 		customer.add( new BankCustomer("Arun Kumar",89756,4589,29563.29) );
-		customer.add( new BankCustomer("Sunitha",25894,2020,5123));
+		customer.add( new BankCustomer("Rakesh",23589,2020,5123));
+		customer.add( new BankCustomer("Geetha",12589,7945,78456));
+		customer.add( new BankCustomer("Prasad",78945,8945,1000000));
+		customer.add( new BankCustomer("Mahesh",32132,5623,0));
+		customer.add( new BankCustomer("Kumar",89564,4512,89466));
+		customer.add( new BankCustomer("Chaithanya",12578,1984,49005));
+		customer.add( new BankCustomer("Sundar",25793,3287,25000));
+		customer.add( new BankCustomer("Sree kanth",65894,2089,79000));
 		mainMenu();
 	}
 }
