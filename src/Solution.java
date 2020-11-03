@@ -65,37 +65,43 @@ public class Solution{
 		System.out.println("Enter 3 to Deposit Money");
 		System.out.println("Enter 4 to change your Pin Number");
 		System.out.println("Enter 5 to logout");
-		System.out.println("Enter 6 to exit\n");
 		
 		int option = input.nextInt();
 		
-		switch (option)
+		if( option == 1 )
 		{
-			case 1:
-				t.showDetails(b);
+			t.showDetails(b);
+			menu(b);
+		}
+		else if( option == 2 )
+		{
+			t.withdrawCash(b);
+			menu(b);
+		}
+		else if( option == 3 )
+		{
+			t.depositCash(b);
+			menu(b);
+		}
+		else if( option == 4 )
+		{
+			System.out.println("Enter your existing Pin for Confirmation");
+			int pin = input.nextInt();
+			if( pin == b.getPin() )
+				t.changePin(b);
+			else 
+				System.out.println("Enter correct pin Try Again");
 				menu(b);
-			case 2:
-				t.withdrawCash(b);
-				menu(b);
-			case 3:
-				t.depositCash(b);
-				menu(b);
-			case 4:
-				System.out.println("Enter your existing Pin for Confirmation");
-				int pin = input.nextInt();
-				if( pin == b.getPin() )
-					t.changePin(b);
-				else 
-					System.out.println("Enter correct pin Try Again");
-				menu(b);
-			case 5:
-				System.out.println("Sucessfully logged out\n");
-				mainMenu();
-			case 6:
-			default:
-				System.out.println("Enter valid Numnber\n");
-				menu(b);
-				
+		}
+		else if( option == 5 )
+		{
+			System.out.println("Sucessfully logged out");
+			mainMenu();
+		}
+		else
+		{	
+			System.out.println("Enter valid Numnber");
+			menu(b);
 		}
 	}
 	

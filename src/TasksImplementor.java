@@ -7,17 +7,17 @@ public class TasksImplementor implements Tasks {
 		System.out.println("Name : "+b.getName());
 		System.out.println("Account Number : "+b.getAccountNumber());
 		System.out.println("Balance : "+b.getBalance());
-		System.out.println();
 	}
 	
 	public void withdrawCash( BankCustomer b )
 	{
-		System.out.println("Enter the amount you want to withdraw");
+		System.out.println("Enter the amount you want to withdraw ( only in multiples of 100 )");
 		double amount = input.nextDouble();
-		if( amount >= 0 && amount < b.getBalance() && amount <= 100000)
+		if( amount > 0 && amount < b.getBalance() && amount <= 100000 && amount % 100 == 0 )
 		{
 			System.out.println("Please take the cash");
 			b.setBalnace( b.getBalance() - amount);
+			System.out.println("\n\nThank you");
 		}
 		else if( amount > 100000 )
 			System.out.println("Maximum Amount that can be Withdrawn is only 1,00,000 ;Try Again");
@@ -30,10 +30,11 @@ public class TasksImplementor implements Tasks {
 	{
 		System.out.println("Enter the amount you want to deposit");
 		double amount = input.nextDouble();
-		if( amount >= 0 )
+		if( amount > 0 )
 		{
 			System.out.println("Place the cash in the Machine");
 			b.setBalnace( b.getBalance() + amount );
+			System.out.println("\n\nThank you");
 		}
 		else
 			System.out.println("Enter Valid Amount");
@@ -50,7 +51,17 @@ public class TasksImplementor implements Tasks {
 			changePin(b);
 		}
 		else if( pin > 999 && pin < 10000 )
-			b.setPin(pin);
+		{
+			System.out.println("Re Enter the pin again");
+			int p = input.nextInt();
+			if( p == pin)
+				b.setPin(pin);
+			else
+			{
+				System.out.println("Enter correct pin");
+				changePin( b );
+			}
+		}
 		else
 		{
 			System.out.println("Enter Valid 4 digit pin");
